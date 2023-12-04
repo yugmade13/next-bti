@@ -14,7 +14,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
 export default function EditClassroom() {
   const router = useRouter();
   const params = useParams();
-  const { data, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_BASE_URL}/api/management?id=${params.id}`, fetcher);
+  const { data, isLoading } = useSWR(`/api/management?id=${params.id}`, fetcher);
   const { students } = useStudents();
   const { classrooms } = useClassroom();
 
@@ -26,7 +26,7 @@ export default function EditClassroom() {
 
     console.log(data);
 
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/management?id=${params.id}`, {
+    await fetch(`/api/management?id=${params.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

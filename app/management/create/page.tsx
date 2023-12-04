@@ -19,7 +19,7 @@ export default function CreateManagement() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
 
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/management`, {
+    await fetch("/api/management", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

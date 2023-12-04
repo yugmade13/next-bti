@@ -64,7 +64,7 @@ export default function Classroom() {
   const router = useRouter();
 
   const handleDelete = async (id: number) => {
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/classroom?id=${id}`, {
+    await fetch(`/api/classroom?id=${id}`, {
       method: 'DELETE',
     });
 

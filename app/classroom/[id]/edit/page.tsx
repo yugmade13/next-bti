@@ -15,7 +15,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
 export default function EditClassroom() {
   const router = useRouter();
   const params = useParams();
-  const { data, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_BASE_URL}/api/classroom?id=${params.id}`, fetcher);
+  const { data, isLoading } = useSWR(`/api/classroom?id=${params.id}`, fetcher);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ export default function EditClassroom() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
 
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/classroom?id=${params.id}`, {
+    await fetch(`/api/classroom?id=${params.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

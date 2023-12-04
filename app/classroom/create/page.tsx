@@ -18,7 +18,7 @@ export default function CreateClassroom() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
 
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/classroom`, {
+    await fetch("/api/classroom", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

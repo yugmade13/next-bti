@@ -57,7 +57,7 @@ export default function Home() {
   const router = useRouter();
 
   const handleDelete = async (id: number) => {
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/students?id=${id}`, {
+    await fetch(`/api/students?id=${id}`, {
       method: 'DELETE',
     });
 

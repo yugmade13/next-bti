@@ -28,7 +28,7 @@ export default function CreateClassroom() {
 
     const date = new Date(data.dob as string).toISOString();
 
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/students`, {
+    await fetch("/api/students", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

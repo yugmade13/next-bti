@@ -23,7 +23,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
 export default function EditClassroom() {
   const router = useRouter();
   const params = useParams();
-  const { data, isLoading, mutate } = useSWR(`${process.env.NEXT_PUBLIC_BASE_URL}/api/students?id=${params.id}`, fetcher);
+  const { data, isLoading, mutate } = useSWR(`/api/students?id=${params.id}`, fetcher);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ export default function EditClassroom() {
 
     const date = new Date(data.dob as string).toISOString();
 
-    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/students?id=${params.id}`, {
+    await fetch("/api/students?id=${params.id}", {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
